@@ -1,0 +1,29 @@
+.menuButton {
+    width: 30px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    color: currentColor;
+    transition: color 0.5s ease-in-out;
+
+    .line {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        transition: center;
+
+        &:first-child {
+            top: 1px;
+        }
+
+        &:last-child {
+            bottom: 1px;
+        }
+    }
+}

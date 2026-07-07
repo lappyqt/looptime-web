@@ -1,7 +1,7 @@
-import { Route, Routes } from "react-router";
-import Home from "../pages/Home";
-import Contact from "../pages/Contact";
-import Layout from "../widgets/layout/Layout";
+import { Route, Routes } from 'react-router';
+import Home from '../pages/Home/Home';
+import Contact from '../pages/Contact';
+import Layout from '../widgets/layout/Layout';
 
 function App() {
     return (

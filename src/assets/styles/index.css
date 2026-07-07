@@ -1,10 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --font-title: 'Montserrat', 'Manrope', sans-serif;
+    --font-text: 'Manrope', 'Montserrat', sans-serif;
+    --font-numbers: 'Space Grotesk', 'Manrope', sans-serif;
+    --color-white: hsl(0, 0%, 100%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-coal: hsl(0, 0%, 12%);
+    --container-padding: 30px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 html, body {
-    overflow-x: hidden;
     width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body {
+    font-family: var(--font-text);
+    font-style: normal;
+    font-size: 16px;
+    scroll-behavior: auto !important; 
+    scrollbar-gutter: stable;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a, a:visited {
+    color: currentColor;
+    text-decoration: inherit;
 }

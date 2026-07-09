@@ -7,6 +7,7 @@
     --color-white: hsl(0, 0%, 100%);
     --color-black: hsl(0, 0%, 0%);
     --color-coal: hsl(0, 0%, 12%);
+    --color-red: hsl(1, 85%, 48%);
     --container-padding: 30px;
 }
 

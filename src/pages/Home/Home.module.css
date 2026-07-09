@@ -1,10 +1,450 @@
+.gradientText {
+    background: linear-gradient(to bottom, hsla(0, 0%, 55%, 0.5), hsla(0, 0%, 30%, 4%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block; 
+}
+
 .sections {
     width: 100%;
     display: flex;
     flex-direction: column;
 
     .section {
-        min-height: 100vh;
+        min-height: 100lvh;
         position: relative;
+    }
+
+    .heroSection {
+        width: 100%;
+        height: 300lvh;
+
+        .stickyWrapper {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 100lvh;
+            overflow: hidden;
+
+            .videoContainer {
+                position: absolute;
+                background: var(--color-coal);
+                inset: 80px 30px 30px;
+                display: flex;
+                align-items: center;
+
+                video {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .content {
+                    position: relative;
+                    width: 100%;
+                    padding-left: clamp(32px, 6vw, 80px);
+                    max-width: 780px;
+                    z-index: 2;
+                    color: var(--color-white);
+
+                    .contentTitle {
+                        font-family: var(--font-title);
+                        font-size: clamp(32px, 5vw, 96px);
+                        font-weight: 500;
+                        margin-bottom: 20px;
+                        word-break: break-word;
+                    }
+
+                    .contentDescription {
+                        font-family: var(--font-text);
+                        font-size: clamp(16px, 1.2vw + 12px, 24px);
+                        margin-bottom: 30px;
+                    }
+
+                    .contentButton {
+                        font-family: var(--font-text);
+                        font-size: clamp(14px, 0.8vw + 11px, 18px);
+                        font-weight: 500;
+                        border: none;
+                        color: var(--color-black);
+                        background-color: var(--color-white);
+                        border-radius: 12px;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .scrollIndicator {
+                position: absolute;
+                left: 50%;
+                bottom: 30px;
+                color: var(--color-white);
+                font-weight: 500;
+                transform: translateX(-50%);
+
+                span {
+                    font-size: clamp(15px, 0.57vw + 13.2px, 20px);
+                }
+            }
+        }
+    }
+
+    .upcomingEventsSection {
+        width: 100%;
+        min-height: 100lvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 180px 30px 60px; 
+
+        .title {
+            position: absolute;
+            top: 0;
+            margin: 0 auto;
+            font-family: var(--font-title);
+            font-size: 7cqi;
+            font-weight: 600;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; 
+            display: block;
+        }
+
+        .eventCards {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            
+            .eventCard {
+                width: 360px;
+                height: 480px;
+                background-color: hsla(0, 0%, 95%, 0.5);
+                border-radius: 12px;
+                border: 1px solid hsla(0, 0%, 0%, 0.05)
+            }
+        }
+    }
+
+    .racingSeriesSection {
+        width: 100%;
+        min-height: 100lvh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100lvh, auto); 
+
+        .series {
+            overflow: hidden;
+            width: calc(100% + 1px);
+            position: relative;
+            will-change: transform;
+            backface-visibility: hidden; 
+            -webkit-font-smoothing: subpixel-antialiased;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &.formula1 {
+                background-image: url('/series/formula_1_background.jpg');
+            }
+
+            &.wec {
+                background-image: url('/series/wec_background.jpg');
+            }
+
+            &.gt {
+                background-image: url('/series/gt_background.jpg');
+            }
+
+            .content {
+                width: 100%;
+                height: 100%;
+                backdrop-filter: brightness(0.7) blur(4px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                padding: 60px;
+                min-height: 100%;
+                gap: 30px;
+
+                .seriesLogo {
+                    width: 100%;
+                    max-width: 280px;
+                    max-height: 110px;
+                    height: auto;
+                    display: block;
+                    object-fit: contain;
+                }
+
+                .text {
+                    width: 100%;
+                    font-size: clamp(20px, calc(18.4px + 0.5vw), 28px);
+                    text-align: justify;
+                    font-weight: 500;
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+
+    .photoGallerySection {
+        width: 100%;
+        height: 400lvh;
+        background-color: var(--color-coal);
+        
+        .stickyWrapper {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 100svh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .title {
+                font-family: var(--font-title);
+                font-weight: 600;
+                font-size: clamp(32px, 8vw, 64px); 
+                background: linear-gradient(to right, hsl(0, 0%, 100%), hsl(0, 0%, 17%));
+                -webkit-background-clip: text;
+                background-clip: text;
+                z-index: 100;
+                text-align: center;
+            }
+
+            img {
+                z-index: 99;
+                position: absolute;
+                width: clamp(160px, 30vw, 300px);
+                max-height: 360px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .reviewsSection {
+        width: 100%;
+        min-height: 120lvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        padding: 180px var(--container-padding) 60px;
+
+        .title {
+            position: absolute;
+            top: 0;
+            margin: 0 auto;
+            font-family: var(--font-title);
+            font-size: 7cqi;
+            font-weight: 600;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; 
+            display: block;
+        }
+
+        .reviews {
+            width: 100%;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+
+            .review {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin: 0;
+                padding: 20px 40px;
+                position: relative;
+                border-radius: 12px;
+                border: 1px solid hsla(0, 0%, 0%, 0.3);
+
+                &::before {
+                    content: '“';
+                    font-size: 64px;
+                    color: var(--color-red);
+                    position: absolute;
+                    top: 10px;
+                    left: 37.5px;
+                    font-family: var(--font-title);
+                }
+                
+                .text {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin: 40px 0 0 0;
+                    color: hsl(0, 0%, 11%);
+                }
+
+                .author {
+                    padding-top: 150px;
+                    font-size: 18px;
+                    font-family: var(--font-text);
+                    font-weight: 500;
+                }
+
+                .authorName {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .carouselContainer {
+            margin-top: 100px;
+            margin-bottom: 100px;
+            overflow: hidden;
+            width: 100%;
+            mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+            );
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+            );
+
+            .carouselTrack {
+                box-sizing: border-box;
+                will-change: transform;
+                transition: none;
+                display: flex;
+                align-items: center;
+                width: max-content;
+                animation: scroll 10s linear infinite;
+
+                .logoContainer {
+                    max-width: 300px;
+                    max-height: 120px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    padding: 0 50px;
+
+                    .partnerLogo {
+                        max-height: 100%;
+                        max-width: 100%;
+                        width: auto;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }  
+            }
+        }
+    }
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-25%); }
+}
+
+@media screen and (max-width: 1200px) {
+    .sections {
+        .racingSeriesSection {
+            grid-template-columns: 1fr;
+            grid-auto-rows: minmax(70lvh, auto); 
+            padding: 50px var(--container-padding);
+            gap: 30px;
+
+            .series {
+                max-width: 540px;
+                margin: 0 auto;
+                min-height: 680px;
+                height: auto;
+                border-radius: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sections {
+        .heroSection {
+            .stickyWrapper {
+                .videoContainer {
+                    .content {
+                        padding: 0 20px;
+                    }
+                }
+            }
+        }
+
+        .upcomingEventsSection {
+            padding: 100px 30px 60px; 
+
+            .eventCards {
+                gap: 30px;
+            }
+        }
+
+        .racingSeriesSection {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 100lvh;
+            padding: 0;
+            gap: 0;
+
+            .series {
+                max-width: 100%;
+                border-radius: 0;
+                width: 100%;
+
+                .content {
+                    .seriesLogo {
+                        max-width: min(200px, 55vw); 
+                        max-height: 100px;
+                    }
+                }
+            }
+        }
+
+        .reviewsSection {
+            .title {
+                white-space: wrap;
+                font-size: 10cqi;
+            }
+
+            .reviews {
+                .review {
+                    &::before {
+                        left: 22.5px;
+                    }
+
+                    padding: 15px 25px;
+
+                    .text {
+                        font-size: 18px;
+                    }
+
+                    .author {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
     }
 }

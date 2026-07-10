@@ -13,16 +13,25 @@ interface UpcomingEventCardProps {
     variants: Variants
 }
 
+const seriesLogo = {
+    f1: Formula1Logo,
+    wec: WecLogo,
+    gt: GtLogo
+};
+
+
 function UpcomingEventCard(props: UpcomingEventCardProps) {
+    const SeriesLogo = seriesLogo[props.event.seriesType ?? 'f1'];
+
     return (
         <motion.div className={styles.eventCard} variants={props.variants}>
             <div className={styles.top}>
-                <Formula1Logo className={styles.logo} />
+                <SeriesLogo className={styles.logo} />
                 <span className={styles.index}>{props.number ? props.number : ''}</span>
             </div>
             <div className={styles.center}>
                 <div className={styles.trackContainer}>
-                    <img src="https://i.pinimg.com/originals/12/8c/53/128c532db8f13bb2663f9c879e610992.gif" alt="" />
+                    <img src="" alt="" />
                 </div>
                 <p className={styles.eventName}>BRITISH GRAND PRIX</p>
                 <p className={styles.location}>SILVERSTONE - UK</p>

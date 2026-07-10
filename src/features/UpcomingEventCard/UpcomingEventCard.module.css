@@ -10,6 +10,8 @@
     flex-direction: column;
     box-sizing: border-box;
     padding: 20px;
+    cursor: pointer;
+    will-change: opacity transform;
 
     .top, .center, .bottom {
         width: 100%;
@@ -28,7 +30,7 @@
             max-width: 70px;
             width: auto;
             height: 15px;
-            fill: hsla(0, 0%, 0%, 0.65) !important;
+            color: hsla(0, 0%, 0%, 0.65) !important;
         }
 
         .index {

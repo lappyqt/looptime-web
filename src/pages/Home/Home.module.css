@@ -144,7 +144,7 @@
 
         .series {
             overflow: hidden;
-            width: calc(100% + 1px);
+            width: 100%;
             position: relative;
             will-change: transform;
             backface-visibility: hidden; 
@@ -153,16 +153,20 @@
             background-repeat: no-repeat;
             background-size: cover;
 
+            &:nth-child(2) {
+                width: calc(100% + 1px);
+            }
+
             &.formula1 {
-                background-image: url('/series/formula_1_background.jpg');
+                /* background-image: url('/series/formula_1_background.jpg'); */
             }
 
             &.wec {
-                background-image: url('/series/wec_background.jpg');
+                /* background-image: url('/series/wec_background.jpg'); */
             }
 
             &.gt {
-                background-image: url('/series/gt_background.jpg');
+                /* background-image: url('/series/gt_background.jpg'); */
             }
 
             .content {
@@ -373,8 +377,8 @@
 
             .series {
                 max-width: 540px;
+                min-height: 730px;
                 margin: 0 auto;
-                min-height: 680px;
                 height: auto;
                 border-radius: 16px;
             }
@@ -412,6 +416,7 @@
                 max-width: 100%;
                 border-radius: 0;
                 width: 100%;
+                min-height: auto;
 
                 .content {
                     .seriesLogo {

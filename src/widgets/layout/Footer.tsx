@@ -15,8 +15,8 @@ function Footer() {
             <div className={styles.right}>
                 <div className={clsx(styles.linkContainer, styles.routes)}>
                     <Link to={'/'}>Главная</Link>
-                    <Link to={'#'}>Трассы</Link>
                     <Link to={'/contact'}>Контакты</Link>
+                    <Link to={'/calendar'}>Календарь</Link>
                 </div>
                 
                 <div className={styles.divider}></div>

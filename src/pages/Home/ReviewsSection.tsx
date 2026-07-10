@@ -10,41 +10,41 @@ const partnersLogoUrls = [
     '/partners/WEC.svg'
 ];
 
+const sectionVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.4,
+            staggerChildren: 0.25
+        }
+    }
+};
+
+const titleVariants = {
+    hidden: { 
+        opacity: 0, 
+        y: 50 
+    },
+    visible: { 
+        opacity: 1, 
+        y: 15,
+        transition: { duration: 0.8, ease: "easeOut" }
+    }
+} as Variants;
+
+const cardVariants = {
+    hidden: { 
+        opacity: 0, 
+        y: 50 
+    },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
+} as Variants;
+
 function ReviewsSection() {
-    const sectionVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                delayChildren: 0.4,
-                staggerChildren: 0.25
-            }
-        }
-    };
-
-    const titleVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 50 
-        },
-        visible: { 
-            opacity: 1, 
-            y: 15,
-            transition: { duration: 0.8, ease: "easeOut" }
-        }
-    } as Variants;
-
-    const cardVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 50 
-        },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.6, ease: "easeOut" }
-        }
-    } as Variants;
-
     return (
         <motion.section className={styles.reviewsSection}
             variants={sectionVariants}

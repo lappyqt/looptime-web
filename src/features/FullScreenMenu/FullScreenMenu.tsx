@@ -26,11 +26,11 @@ function FullScreenMenu() {
                         <MotionLink onClick={toggle} className={styles.link} to={'/'}>
                             Главная
                         </MotionLink>
-                        <MotionLink onClick={toggle} className={styles.link}>
-                            Трассы
-                        </MotionLink>
                         <MotionLink onClick={toggle} className={styles.link} to={'/contact'}>
                             Контакты
+                        </MotionLink>
+                        <MotionLink onClick={toggle} className={styles.link} to={'/calendar'}>
+                            Календарь
                         </MotionLink>
                     </div>   
 

@@ -1,4 +1,4 @@
-import type { MotionValue } from "motion";
+import type { MotionValue } from "motion/react";
 import { useSpring, useTransform } from "motion/react";
 
 export function useParallax(mouseX: MotionValue<number>, mouseY: MotionValue<number>, baseX: number, baseY: number, amplitude: number) {

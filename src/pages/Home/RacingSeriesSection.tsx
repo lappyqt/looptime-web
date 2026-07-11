@@ -1,13 +1,14 @@
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import styles from './Home.module.css';
 import clsx from "clsx";
+const baseUrl = import.meta.env.BASE_URL; 
 
 function RacingSeriesSection() {
     return (
         <section className={styles.racingSeriesSection}>
             <div className={clsx(styles.series, styles.formula1)}>
                 <div className={styles.content}>
-                    <motion.img className={styles.seriesLogo} src="/series/formula_1.svg" alt="Formula 1 Logo" />
+                    <motion.img className={styles.seriesLogo} src={`${baseUrl}/series/formula_1.svg`} alt="Formula 1 Logo" />
                     <span className={styles.text}>
                         <b>Formula-1 </b>
                         — чемпионат мира для болидов с открытыми колесами и вершина технологий.
@@ -19,7 +20,7 @@ function RacingSeriesSection() {
             </div>
             <div className={clsx(styles.series, styles.wec)}>
                 <div className={styles.content}>
-                    <img className={styles.seriesLogo} src="/series/wec_long.svg" alt="Wec Logo" />
+                    <img className={styles.seriesLogo} src={`${baseUrl}/series/wec_long.svg`}  alt="Wec Logo" />
                     <span className={styles.text}>
                         <b>WEC </b>
                         — главный чемпионат на выносливость с культовым марафоном «24 часа Ле-Мана».
@@ -30,7 +31,7 @@ function RacingSeriesSection() {
             </div>
             <div className={clsx(styles.series, styles.gt)}>
                 <div className={styles.content}>
-                    <img className={styles.seriesLogo} src="/series/gt_long.svg" alt="GT Logo" />
+                    <img className={styles.seriesLogo} src={`${baseUrl}/series/gt_long.svg`} alt="GT Logo" />
                     <span className={styles.text}>
                         <b>GT3 </b>
                         — гонки спортивных машин, построенных на базе серийных дорожных суперкаров.

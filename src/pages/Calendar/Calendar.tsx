@@ -6,8 +6,10 @@ import WecLogo from '../../assets/images/icons/series/wec_short.svg?react';
 import GtLogo from '../../assets/images/icons/series/gt_short.svg?react';
 import TrackCard from '../../widgets/TrackCard/TrackCard';
 import EventCard from '../../widgets/EventCard/EventCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, type Variants } from 'motion/react';
+import { tracksDataset } from '../../dataset/tracks';
+import type { Series } from '../../entities/series';
 
 const containerVariants = {
     hidden: {},
@@ -35,11 +37,18 @@ const cardVariants = {
 
 function Calendar() {
     const [contentType, setContentType] = useState('tracks');
-    const [activeSeries, setActiveSeries] = useState(null);
+    const [activeSeries, setActiveSeries] = useState<Series | undefined>(undefined);
 
-    const toggleSeries = (seriesName) => {
-        setActiveSeries(prev => prev === seriesName ? null : seriesName);
+    const toggleSeries = (seriesName: Series) => {
+        setActiveSeries(prev => prev === seriesName ? undefined : seriesName);
     };
+
+    const filteredTracks = tracksDataset.filter(track => {
+        if (!activeSeries) return true;
+        return track.series.some(s => s === activeSeries.toLocaleLowerCase());
+    });
+
+    useEffect(() => window.scrollTo(0, 0), []);
 
     return (
         <section className={styles.calendarSection}>
@@ -81,9 +90,9 @@ function Calendar() {
                                 variants={containerVariants}
                                 initial='hidden'
                                 animate='visible'>
-                                {new Array(5).fill(null).map((_, index) => (
+                                {filteredTracks.map((track, index) => (
                                     <motion.div whileHover={{ scale: 1.05 }} variants={cardVariants} key={index}>
-                                        <TrackCard />
+                                        <TrackCard track={track} />
                                     </motion.div>
                                 ))}
                             </motion.div>

@@ -2,6 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import styles from './Home.module.css';
 import clsx from "clsx";
 import { useRef } from "react";
+const baseUrl = import.meta.env.BASE_URL;
 import { useScrollAnimation } from "../../shared/hooks/useScrollAnimation";
 
 function PhotoGallerySection() {
@@ -35,35 +36,35 @@ function PhotoGallerySection() {
                     ЗАПЕЧЕТЛЯЕМ ИСТОРИЮ
                 </motion.span>
 
-                <motion.img src="https://i.pinimg.com/1200x/cf/17/fd/cf17fdc870d0c92c6aa56191c187adc8.jpg"
+                <motion.img src={`${baseUrl}/photogalleryH/image1.webp`}
                     style={{
                         ...img1,
-                        top: '10%',
+                        top: '20%',
                         left: '5%'
                     }} />
 
-                <motion.img src="https://i.pinimg.com/1200x/08/f2/60/08f26002e9edd17565d2f3c72875919d.jpg"
+                <motion.img src={`${baseUrl}/photogalleryH/image2.webp`}
                     style={{
                         ...img2,
                         bottom: '7%',
                         left: '25%'
                     }} />
 
-                <motion.img src="https://i.pinimg.com/736x/3c/c5/fa/3cc5fa7af78bc0013bf96fc09020616b.jpg"
+                <motion.img src={`${baseUrl}/photogalleryH/image3.webp`}
                     style={{
                         ...img3,
                         top: '15%',
                         left: '35%'
                     }} />
 
-                <motion.img src="https://i.pinimg.com/736x/25/9d/9d/259d9d1e34d6361f7cd7823e2a28b2ae.jpg"
+                <motion.img src={`${baseUrl}/photogalleryH/image4.webp`}
                     style={{
                         ...img4,
                         bottom: '11%',
                         right: '20%'
                     }} />
 
-                <motion.img src="https://i.pinimg.com/1200x/f7/34/b2/f734b21b8d269f049af821c5025400e8.jpg"
+                <motion.img src={`${baseUrl}/photogalleryH/image5.webp`}
                     style={{
                         ...img5,
                         top: '13%',

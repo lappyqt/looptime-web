@@ -50,6 +50,7 @@
                     z-index: 2;
                     color: var(--color-white);
 
+
                     .contentTitle {
                         font-family: var(--font-title);
                         font-size: clamp(32px, 5vw, 96px);
@@ -158,21 +159,22 @@
             }
 
             &.formula1 {
-                /* background-image: url('/series/formula_1_background.jpg'); */
+                background-image: url('series/formula_1_background.webp');
             }
 
             &.wec {
-                /* background-image: url('/series/wec_background.jpg'); */
+                background-image: url('series/wec_background.webp');
             }
 
             &.gt {
-                /* background-image: url('/series/gt_background.jpg'); */
+                background-image: url('series/gt_background.webp');
             }
 
             .content {
                 width: 100%;
                 height: 100%;
                 backdrop-filter: brightness(0.7) blur(4px);
+                -webkit-backdrop-filter: brightness(0.7) blur(4px);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -234,6 +236,7 @@
                 width: clamp(160px, 30vw, 300px);
                 max-height: 360px;
                 object-fit: cover;
+                will-change: transform;
             }
         }
     }
@@ -422,6 +425,33 @@
                     .seriesLogo {
                         max-width: min(200px, 55vw); 
                         max-height: 100px;
+                    }
+                }
+            }
+        }
+
+        .photoGallerySection {
+            .stickyWrapper {
+                img {
+                    &:nth-of-type(1) {
+                        top: 10% !important;
+                    }
+
+                    &:nth-of-type(2) {
+                        left: 12% !important;
+                        bottom: 13% !important;
+                    }
+
+                    &:nth-of-type(3) {
+                        top: 20% !important;
+                    }
+
+                    &:nth-of-type(4) {
+                        right: 15% !important;
+                    }
+
+                    &:nth-of-type(5) {
+                        top: 30% !important;
                     }
                 }
             }

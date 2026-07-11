@@ -87,6 +87,7 @@
 @media screen and (max-width: 768px) {
     .trackCard {
         min-width: 300px;
-        height: min-content;
+        min-height: 320px;
+        height: auto;
     }
 }

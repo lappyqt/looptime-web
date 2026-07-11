@@ -3,6 +3,15 @@ import styles from './Contact.module.css';
 import { motion, useMotionValue } from 'motion/react';
 import { useMediaQuery } from 'usehooks-ts';
 import { useParallax } from '../../shared/hooks/useParallax';
+import { useEffect, useState } from 'react';
+import { sendContactFeedback } from '../../api/contact';
+import toast from 'react-hot-toast';
+
+type Errors = {
+    fullname?: string;
+    email?: string;
+    message?: string;
+};
 
 function Contact() {
     const enableParallax = useMediaQuery('not (pointer: coarse)');
@@ -32,6 +41,66 @@ function Contact() {
     const card2Positions = enableParallax ? card2Parallax : { x: 30, y: -30 };
     const card3Positions = enableParallax ? card3Parallax : { x: 60, y: -60 };
 
+    useEffect(() => window.scrollTo(0, 0), []);
+
+    // Feedback logic
+    const [fullname, setFullname] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const [errors, setErrors] = useState<Errors>({});
+
+    const validate = () => {
+        const nextErrors = {} as Errors;
+
+        if (!fullname.trim()) nextErrors.fullname = 'Введите имя';
+        else if (fullname.trim().length < 2) errors.fullname = 'Имя - минимум 2 символа';
+
+        if (!email.trim()) nextErrors.email = 'Введите email';
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = 'Некорректный email';
+
+        if (!message.trim()) nextErrors.message = 'Введите сообщение';
+        else if (message.length < 10) nextErrors.message = 'Сообщение - минимум 10 символов';
+
+        setErrors(nextErrors);
+        return Object.keys(nextErrors).length === 0;
+    };
+
+    const handleSubmit = async (event: React.SubmitEvent) => {
+        event.preventDefault();
+
+        if (!validate()) {
+            toast.error('Исправьте ошибки в форме');
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            await toast.promise(
+                sendContactFeedback({
+                    fullname,
+                    email,
+                    message,
+                }),
+                {
+                    loading: 'Отправка...',
+                    success: 'Успешно отправлено!',
+                    error: 'Ошибка отправки формы',
+                }
+            );
+
+            setFullname('');
+            setEmail('');
+            setMessage('');
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <section className={styles.contactSection} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
             <div className={styles.content}>
@@ -54,23 +123,52 @@ function Contact() {
                     <motion.div style={card2Positions} className={clsx(styles.card, styles.card3)} />
                     <motion.div style={card3Positions} className={clsx(styles.card, styles.card2)} />
                     <motion.div className={clsx(styles.card, styles.card1)}>
-                        <form className={styles.formContainer}>
+                        <form className={styles.formContainer} onSubmit={handleSubmit}>
                             <div className={styles.inputGroup}>
                                 <div className={styles.inputContainer}>
-                                    <label htmlFor='fullname'>Имя</label>
-                                    <input id='fullname' type='text' placeholder='Айртон Сенна' />
+                                    <label htmlFor='fullname'>
+                                        {errors.fullname ?? 'Имя'}
+                                    </label>
+                                    <input id='fullname' 
+                                        type='text' 
+                                        placeholder='Айртон Сенна' 
+                                        value={fullname}
+                                        onChange={(e) => {
+                                            setFullname(e.target.value);
+                                            errors.fullname && setErrors(prev => ({ ...prev, fullname: undefined }))
+                                        }} />
                                 </div>
                                 <div className={styles.inputContainer}>
-                                    <label htmlFor='email'>Почта</label>
-                                    <input id='email' type='email' placeholder='yourmail@mail.com' />
+                                    <label htmlFor='email'>
+                                        {errors.email ?? 'Почта'}
+                                    </label>
+                                    <input id='email' 
+                                        type='email' 
+                                        placeholder='yourmail@mail.com' 
+                                        value={email}
+                                        onChange={(e) => {
+                                            setEmail(e.target.value);
+                                            errors.email && setErrors(prev => ({ ...prev, email: undefined }))
+                                        }} />
                                 </div>
                                 <div className={styles.inputContainer}>
-                                     <label htmlFor='message'>Сообщение</label>
-                                     <textarea id="message" rows={6} placeholder='Ваши пожелания и вопросы'></textarea>
+                                    <label htmlFor='message'>
+                                        {errors.message ?? 'Сообщение'}
+                                    </label>
+                                     <textarea id="message" 
+                                        rows={6} 
+                                        placeholder='Ваши пожелания и вопросы' 
+                                        value={message}
+                                        onChange={(e) => {
+                                            setMessage(e.target.value);
+                                            errors.message && setErrors(prev => ({ ...prev, message: undefined }))
+                                        }} />
                                 </div>
                             </div>
                             
-                            <button type='button'>Отправить</button>
+                            <motion.button  type='submit' disabled={loading}>
+                                Отправить
+                            </motion.button>
                         </form>
                     </motion.div>
                 </div>

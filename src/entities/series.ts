@@ -1,0 +1,1 @@
+export type Series = 'f1' | 'wec' | 'gt';

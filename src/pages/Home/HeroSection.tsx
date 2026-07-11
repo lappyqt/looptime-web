@@ -2,6 +2,7 @@ import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from 'm
 import { useRef } from 'react'; 
 import { useMediaQuery } from 'usehooks-ts';
 import styles from './Home.module.css';
+import { Link } from 'react-router';
 
 function HeroSection() {
     const sectionRef = useRef(null);
@@ -44,7 +45,13 @@ function HeroSection() {
                                 СКОРОСТЬ НА ПРЕДЕЛЕ
                             </p>
                             <p className={styles.contentDescription}>Главные гоночные события сезона 2026</p>
-                            <button className={styles.contentButton}>Расписание</button>
+
+                            <Link to='/calendar'>
+                                <motion.button className={styles.contentButton} 
+                                    whileHover={{ borderRadius: 0 }} transition={{ duration: 0.2 }}>
+                                    Расписание
+                                </motion.button>
+                            </Link>
                         </motion.div>
 
                         <motion.div className={styles.scrollIndicator} style={{ opacity: scrollOpacity }}>

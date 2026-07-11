@@ -1,0 +1,290 @@
+.gradientText {
+    background: linear-gradient(to bottom, hsla(0, 0%, 55%, 0.5), hsla(0, 0%, 30%, 4%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block; 
+}
+
+.sections {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .section {
+        min-height: 100lvh;
+        position: relative;
+    }
+
+    .circuitSection {
+        width: 100%;
+        height: 300lvh;
+
+        .stickyWrapper {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 100lvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 30px;
+
+            .circuitContainer {
+                display: inline-block;
+                max-width: 960px;
+                width: 100%;
+                color: var(--color-red);
+                position: relative;
+
+                .circuit {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+                
+                .corners {
+                    width: 100%;
+                    height: auto;
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+
+            .titleContainer {
+                overflow: hidden;
+                height: 102px;
+
+                .textSlider {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .trackName, .location {
+                    font-family: var(--font-title);
+                    font-size: 84px;
+                    font-weight: 600;
+                    transform: translateZ(0);
+                    backface-visibility: hidden; 
+                    will-change: transform, opacity;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale; 
+                }
+            }
+        }
+    }
+
+    .aboutSection {
+        display: flex;
+        background-color: var(--color-coal);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('https://images.unsplash.com/photo-1617729042101-e1333395d11e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+        .content {
+            width: 100%;
+            min-height: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: brightness(0.8) blur(8px);
+            -webkit-backdrop-filter: brightness(0.8) blur(8px);
+            padding: 30px;
+
+            .text {
+                text-align: justify;
+                max-width: 80%;
+                color: var(--color-white);
+                font-size: 32px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .statsSection {
+        width: 100%;
+        min-height: 100lvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 180px 30px 60px; 
+
+        .title {
+            position: absolute;
+            top: 0;
+            margin: 0 auto;
+            font-family: var(--font-title);
+            font-size: 7cqi;
+            font-weight: 600;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; 
+            display: block;
+        }
+
+        .cards {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(min(390px, 100%), 430px));
+            width: 100%;
+            gap: 50px;
+
+            .statCard {
+                width: 100%;
+                height: 260px;
+                background-color: hsla(0, 0%, 69%, 0.65);
+                background-color: hsla(0, 0%, 95%, 0.5);
+                border-radius: 12px;
+                border: 1px solid hsla(0, 0%, 0%, 0.05);
+                box-sizing: border-box;
+                position: relative;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .topLine {
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding-bottom: 30px;
+
+                    .circle {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 100%;
+                        background-color: var(--color-coal);
+                    }
+
+                    .cardTitle {
+                        font-family: var(--font-text);
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                }
+
+                .value {
+                    font-family: var(--font-numbers);
+                    font-weight: 500;
+                    color: var(--color-red);
+                    font-size: 64px;
+                    text-wrap: wrap;
+                }
+            }
+        }
+    }
+
+    .photogallerySection {
+        width: 100%;
+        min-height: 80lvh;
+        height: 80lvh;
+        background-color: var(--color-coal);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+
+        .title {
+            align-self: flex-start;
+            font-family: var(--font-title);
+            font-size: 64px;
+            font-weight: 600;
+            background: linear-gradient(to bottom, hsla(0, 0%, 100%, 1), hsla(0, 0%, 17%, 1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            padding: 20px 0px 50px 0px;
+        }
+
+        .noContent {
+            font-size: 32px;
+            color: white;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-50px);
+        }
+    }
+
+    .eventsSection {
+        width: 100%;
+
+        .cardGroup {
+            width: 100%;
+            height: auto;
+            min-height: 320px;
+            padding: 50px 30px;
+
+            .title {
+                font-family: var(--font-title);
+                font-weight: 500;
+                font-size: 28px;
+                padding-bottom: 50px;
+            }
+
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(min(440px, 100%), 1fr));
+                gap: 30px;
+                padding-bottom: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sections {
+        .circuitSection {
+            .stickyWrapper {
+                .titleContainer {
+                    height: 32px;
+
+                    .trackName, .location {
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+
+        .aboutSection {
+            .content {
+                padding: 100px 30px;
+
+                .text {
+                    max-width: 100%;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .statsSection {
+            .title {
+                font-size: 9cqi;
+                white-space: wrap;
+            }
+        }
+
+        .photogallerySection {
+            .title {
+                font-size: 32px;
+            }
+        }
+    }
+}

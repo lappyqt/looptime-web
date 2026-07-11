@@ -1,13 +1,14 @@
 import { motion, type Variants } from 'motion/react';
 import styles from './Home.module.css';
 import clsx from 'clsx';
+const baseUrl = import.meta.env.BASE_URL; 
 
 const partnersLogoUrls = [
-    '/partners/Porsche.svg',
-    '/partners/CL16.svg',
-    '/partners/Ferrari.svg',
-    '/partners/McLaren.svg',
-    '/partners/WEC.svg'
+    `${baseUrl}/partners/Porsche.svg`,
+    `${baseUrl}/partners/CL16.svg`,
+    `${baseUrl}/partners/Ferrari.svg`,
+    `${baseUrl}/partners/McLaren.svg`,
+    `${baseUrl}/partners/WEC.svg`
 ];
 
 const sectionVariants = {

@@ -2,6 +2,7 @@ import { Outlet } from 'react-router';
 import Header from './Header';
 import FullScreenMenu from '../../features/FullScreenMenu/FullScreenMenu';
 import Footer from './Footer';
+import { Toaster } from 'react-hot-toast';
 
 function Layout() {
     return (
@@ -12,6 +13,8 @@ function Layout() {
                 <Outlet/>
             </main>
             <Footer />
+
+            <Toaster position='bottom-right' />
         </>
     );
 }

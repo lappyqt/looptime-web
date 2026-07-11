@@ -159,15 +159,15 @@
             }
 
             &.formula1 {
-                background-image: url('series/formula_1_background.webp');
+                background-image: url('/series/formula_1_background.webp');
             }
 
             &.wec {
-                background-image: url('series/wec_background.webp');
+                background-image: url('/series/wec_background.webp');
             }
 
             &.gt {
-                background-image: url('series/gt_background.webp');
+                background-image: url('/series/gt_background.webp');
             }
 
             .content {

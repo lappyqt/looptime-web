@@ -5,5 +5,8 @@ import svgr from 'vite-plugin-svgr';
 // https://vite.dev/config/
 export default defineConfig({
     base: '/looptime-web/',
-    plugins: [react(), svgr()]
+    plugins: [react(), svgr()],
+    build: {
+        target: 'es2018'
+    }
 })

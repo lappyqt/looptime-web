@@ -137,11 +137,11 @@
             flex-wrap: wrap;
             
             .eventCard {
-                width: 360px;
-                height: 480px;
+                width: 100%;
+                max-width: 360px;
                 background-color: hsla(0, 0%, 95%, 0.8);
                 border-radius: 12px;
-                border: 1px solid hsla(0, 0%, 0%, 0.05)
+                border: 1px solid hsla(0, 0%, 0%, 0.05);
             }
         }
     }
@@ -412,7 +412,7 @@
         }
 
         .upcomingEventsSection {
-            padding: 100px 30px 60px; 
+            padding: 150px 30px 60px; 
 
             .eventCards {
                 gap: 30px;

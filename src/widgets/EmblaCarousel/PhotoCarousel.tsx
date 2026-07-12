@@ -41,8 +41,8 @@ export function PhotoCarousel(props: PhotoCarouselProps) {
         <div className={styles.embla}>
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
-                    { props.imagesUrls.length > 0 && props.imagesUrls.map(imageUrl =>
-                        <div className={styles.emblaSlide}>
+                    { props.imagesUrls.length > 0 && props.imagesUrls.map((imageUrl, index) =>
+                        <div className={styles.emblaSlide} key={index}>
                             <img src={imageUrl} alt="" />
                         </div>
                     )}

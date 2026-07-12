@@ -168,7 +168,7 @@ function Contact() {
                                 </div>
                             </div>
                             
-                            <motion.button  type='submit' disabled={loading}>
+                            <motion.button whileHover={{ backgroundColor: '#e0e0e0' }} type='submit' disabled={loading}>
                                 Отправить
                             </motion.button>
                         </form>

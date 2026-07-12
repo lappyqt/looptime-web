@@ -7,7 +7,7 @@ export default defineConfig({
     base: '/looptime-web/',
     plugins: [react(), svgr()],
     build: {
-        target: 'es2018',
-        minify: false
+        minify: 'oxc',
+        cssMinify: 'esbuild'
     }
 })

@@ -1,3 +1,4 @@
+import type { Event } from '../../entities/event';
 import styles from './Event.module.css'; 
 import { motion, type Variants } from 'motion/react';
 
@@ -27,7 +28,11 @@ const bottomTextVariants = {
     }
 } as Variants;
 
-function HeroSection() {
+interface HeroSectionProps {
+    event: Event;
+}
+
+function HeroSection(props: HeroSectionProps) {
     return (
         <motion.section 
             className={styles.heroSection}>
@@ -35,7 +40,7 @@ function HeroSection() {
                 <motion.span className={styles.title}
                     initial="hidden"
                     animate="visible"
-                    variants={topTextVariants}>ГРАН-ПРИ ВЕЛИКОБРИТАНИИ</motion.span>
+                    variants={topTextVariants}>{props.event.name.toUpperCase()}</motion.span>
                 <motion.div className={styles.line}
                     initial="hidden"
                     animate="visible"
@@ -45,8 +50,8 @@ function HeroSection() {
                     initial="hidden"
                     animate="visible"
                     variants={bottomTextVariants}>
-                    <div className={styles.dates}>21-24 МАЯ</div>
-                    <div className={styles.roundNumber}>Раунд 7</div>
+                    <div className={styles.dates}>{props.event.dateString}</div>
+                    <div className={styles.roundNumber}>Раунд {props.event.roundNumber}</div>
                 </motion.div>
             </div>
         </motion.section>

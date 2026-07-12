@@ -3,6 +3,7 @@ import styles from './Home.module.css';
 import clsx from 'clsx';
 import UpcomingEventCard from '../../features/UpcomingEventCard/UpcomingEventCard';
 import { eventsDataset } from '../../dataset/event';
+import { Link } from 'react-router';
 
 const sectionVariants = {
     hidden: {},
@@ -55,7 +56,9 @@ function UpcomingEventsSection() {
 
                 <div className={styles.eventCards}>
                     {upcomingEvents.map((event, index) => (
-                        <UpcomingEventCard key={index} event={event} number={index + 1} variants={cardVariants} />
+                        <Link to={`/event/${event.id}`} key={index}>
+                            <UpcomingEventCard event={event} number={index + 1} variants={cardVariants} />
+                        </Link>
                     ))}
                 </div>
        </motion.section>

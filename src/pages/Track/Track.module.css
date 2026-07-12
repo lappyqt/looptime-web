@@ -1,10 +1,30 @@
 .gradientText {
-    background: linear-gradient(to bottom, hsla(0, 0%, 55%, 0.5), hsla(0, 0%, 30%, 4%));
+    background: linear-gradient(to bottom, hsl(0, 0%, 55%), hsla(0, 0%, 30%, 4%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     display: inline-block; 
+}
+
+.notFound {
+    width: 100%;
+    height: 100lvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 500;
+    gap: 20px;
+    flex-direction: column;
+
+    p {
+        font-size: 24px;
+    }
+
+    .link {
+        text-decoration: underline;
+    }
 }
 
 .sections {
@@ -73,7 +93,8 @@
                     backface-visibility: hidden; 
                     will-change: transform, opacity;
                     -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale; 
+                    -moz-osx-font-smoothing: grayscale;
+                    white-space: nowrap;
                 }
             }
         }
@@ -85,7 +106,7 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url('https://images.unsplash.com/photo-1617729042101-e1333395d11e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-image: url('../../assets/images//track/about.webp');
 
         .content {
             width: 100%;
@@ -144,9 +165,9 @@
             .statCard {
                 width: 100%;
                 height: 260px;
-                background-color: hsla(0, 0%, 95%, 0.5);
+                background-color: hsla(0, 0%, 95%, 0.8);
                 border-radius: 12px;
-                border: 1px solid hsla(0, 0%, 0%, 0.05);
+                border: 1px solid hsla(0, 0%, 0%, 0.1);
                 box-sizing: border-box;
                 position: relative;
                 padding: 20px;
@@ -191,8 +212,8 @@
 
     .photogallerySection {
         width: 100%;
-        min-height: 80lvh;
-        height: 80lvh;
+        min-height: 100lvh;
+        height: 100lvh;
         background-color: var(--color-coal);
         padding: 30px;
         display: flex;
@@ -253,10 +274,10 @@
         .circuitSection {
             .stickyWrapper {
                 .titleContainer {
-                    height: 32px;
+                    height: 34px;
 
                     .trackName, .location {
-                        font-size: 32px;
+                        font-size: 28px;
                     }
                 }
             }
@@ -278,11 +299,23 @@
                 font-size: 9cqi;
                 white-space: wrap;
             }
+
+            .cards {
+                .statCard {
+                    .value {
+                        font-size: 48px;
+                    }
+                }
+            }
         }
 
         .photogallerySection {
             .title {
                 font-size: 32px;
+            }
+
+            .noContent {
+                font-size: 20px;
             }
         }
     }

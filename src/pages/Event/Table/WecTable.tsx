@@ -18,7 +18,6 @@ export const WecTable = (props: WecTableProps) => {
             <th>Общее время</th>
             <th>Отставание</th>
             <th>Интервал</th>
-            <th>Лучший круг</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +30,6 @@ export const WecTable = (props: WecTableProps) => {
               <td>{row.totalTime}</td>
               <td>{row.gap}</td>
               <td>{row.interval}</td>
-              <td>{row.bestLap}</td>
             </tr>
           ))}
         </tbody>

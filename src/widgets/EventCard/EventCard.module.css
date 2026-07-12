@@ -4,9 +4,9 @@
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr 1fr;
     height: 320px;
-    background-color: hsla(0, 0%, 95%, 0.5);
+    background-color: hsla(0, 0%, 95%, 0.8);
     border-radius: 12px;
-    border: 1px solid hsla(0, 0%, 0%, 0.05);
+    border: 1px solid hsla(0, 0%, 0%, 0.1);
     box-sizing: border-box;
     padding: 20px;
 

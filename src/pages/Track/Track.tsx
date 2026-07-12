@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import styles from './Track.module.css';
 import CircuitSection from './CircuitSection';
 import AboutSection from './AboutSection';
@@ -7,6 +7,7 @@ import PhotogallerySection from './PhotogallerySection';
 import EventsSection from './EventsSection';
 import { tracksDataset } from '../../dataset/tracks';
 import { useEffect } from 'react';
+import ScrollToTop from '../../shared/ui/ScrollToTop';
 
 
 function Track() {
@@ -14,7 +15,10 @@ function Track() {
     const track = tracksDataset.find(t => t.id === Number(id));
 
     if (!track) {
-        return <>Трек не найден</>
+        return <div className={styles.notFound}>
+            <p>Трасса не найдена</p>
+            <Link to={'/calendar'} className={styles.link}>Календарь</Link>
+        </div>
     }
 
     useEffect(() => {
@@ -28,6 +32,8 @@ function Track() {
             <StatsSection track={track} />
             <PhotogallerySection track={track} />
             <EventsSection track={track} />
+
+            <ScrollToTop />
         </section>
     );
 }

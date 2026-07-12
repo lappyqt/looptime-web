@@ -48,7 +48,7 @@ function HeroSection() {
 
                             <Link to='/calendar'>
                                 <motion.button className={styles.contentButton} 
-                                    whileHover={{ borderRadius: 0 }} transition={{ duration: 0.2 }}>
+                                    whileHover={{ backgroundColor: '#e0e0e0' }}>
                                     Расписание
                                 </motion.button>
                             </Link>

@@ -23,13 +23,13 @@ function FullScreenMenu() {
                     exit={{ y: '-100vh', transition: { duration: 0.5, ease: 'easeInOut' } }} 
                     className={styles.menu}>
                     <div className={styles.links}>
-                        <MotionLink onClick={toggle} className={styles.link} to={'/'}>
+                        <MotionLink onClick={toggle} className={styles.link} to={'/'} whileHover={{ color: '#aaaaaa' }}>
                             Главная
                         </MotionLink>
-                        <MotionLink onClick={toggle} className={styles.link} to={'/contact'}>
+                        <MotionLink onClick={toggle} className={styles.link} to={'/contact'} whileHover={{ color: '#aaaaaa' }}>
                             Контакты
                         </MotionLink>
-                        <MotionLink onClick={toggle} className={styles.link} to={'/calendar'}>
+                        <MotionLink onClick={toggle} className={styles.link} to={'/calendar'} whileHover={{ color: '#aaaaaa' }}>
                             Календарь
                         </MotionLink>
                     </div>   
@@ -37,8 +37,8 @@ function FullScreenMenu() {
                     <div className={styles.socialsContainer}>
                         <p className={styles.title}>Следите за новостями</p>
                         <div className={styles.socials}>
-                            <motion.div className={clsx(styles.circle, styles.twitter)} whileHover={{ scale: 1.1 }}></motion.div>
-                            <motion.div className={clsx(styles.circle, styles.vk)} whileHover={{ scale: 1.1 }}></motion.div>
+                            <motion.a className={clsx(styles.circle, styles.twitter)} whileHover={{ scale: 1.1 }}></motion.a>
+                            <motion.a className={clsx(styles.circle, styles.vk)} whileHover={{ scale: 1.1 }} href='https://vk.com/f1series' target='_blank'></motion.a>
                         </div>
                     </div> 
                 </motion.nav>

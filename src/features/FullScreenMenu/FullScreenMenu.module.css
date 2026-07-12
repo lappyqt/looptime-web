@@ -19,7 +19,7 @@
 
         .link {
             color: var(--color-white);
-            font-size: clamp(40px, 8vw, 124px); 
+            font-size: clamp(40px, 1rem + 5vw, 124px);
             font-family: var(--font-title);
             font-weight: 500;
             text-decoration: none;

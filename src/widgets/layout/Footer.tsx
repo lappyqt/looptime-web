@@ -23,7 +23,7 @@ function Footer() {
 
                 <div className={clsx(styles.linkContainer, styles.socials)}>
                     <Link to={'#'}>Твиттер</Link>
-                    <Link to={'#'}>Вконтакте</Link>
+                    <a href='https://vk.com/f1series' target='_blank'>Вконтакте</a>
                 </div>
 
                 <div className={styles.divider}></div>

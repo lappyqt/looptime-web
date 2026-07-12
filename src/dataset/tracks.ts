@@ -7,7 +7,7 @@ export const tracksDataset: Track[] = [
         name: 'SILVERSTONE',
         country: 'UNITED KINDOM',
         distance: 5.891,
-        eventsCount: 3,
+        eventsCount: 1,
         imageUrl: `${baseUrl}/circuits/conf_path/Silverstone.svg`,
         series: ['f1'],
         circuitPathUrl: `${baseUrl}/circuits/conf_path/Silverstone.svg`,
@@ -20,8 +20,10 @@ export const tracksDataset: Track[] = [
         turnsCount: 18,
         grandstandCapacity: 175000,
         galleryUrls: [
-            'https://images.unsplash.com/photo-1781817389011-7dabedf93215?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            'https://images.unsplash.com/photo-1783703182665-206d1a6f3adc?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            `${baseUrl}/trackPhotogallery/silverstone/image1.avif`,
+            `${baseUrl}/trackPhotogallery/silverstone/image2.avif`,
+            `${baseUrl}/trackPhotogallery/silverstone/image3.avif`,
+            `${baseUrl}/trackPhotogallery/silverstone/image4.webp`,
         ]
     },
     {
@@ -41,14 +43,18 @@ export const tracksDataset: Track[] = [
         lapRecordTime: '1:44.701',
         turnsCount: 19,
         grandstandCapacity: 70000,
-        galleryUrls: []
+        galleryUrls: [
+            `${baseUrl}/trackPhotogallery/spa/image1.webp`,
+            `${baseUrl}/trackPhotogallery/spa/image2.webp`,
+            `${baseUrl}/trackPhotogallery/spa/image3.webp`
+        ]
     },
     {
         id: 3,
         name: 'MONZA',
         country: 'ITALY',
         distance: 5.793,
-        eventsCount: 3,
+        eventsCount: 2,
         imageUrl: `${baseUrl}/circuits/conf_path/Monza.svg`,
         series: ['f1', 'gt'],
         circuitPathUrl: `${baseUrl}/circuits/conf_path/Monza.svg`,
@@ -60,14 +66,18 @@ export const tracksDataset: Track[] = [
         lapRecordTime: '1:20.901',
         turnsCount: 11,
         grandstandCapacity: 118865,
-        galleryUrls: []
+        galleryUrls: [
+            `${baseUrl}/trackPhotogallery/monza/image1.webp`,
+            `${baseUrl}/trackPhotogallery/monza/image2.webp`,
+            `${baseUrl}/trackPhotogallery/monza/image3.webp`
+        ]
     },
     {
         id: 4,
         name: 'INTERLAGOS',
         country: 'BRAZIL',
         distance: 4.309,
-        eventsCount: 3,
+        eventsCount: 2,
         imageUrl: `${baseUrl}/circuits/conf_path/Interlagos.svg`,
         series: ['f1', 'wec'],
         circuitPathUrl: `${baseUrl}/circuits/conf_path/Interlagos.svg`,
@@ -79,14 +89,17 @@ export const tracksDataset: Track[] = [
         lapRecordTime: '1:10.540',
         turnsCount: 15,
         grandstandCapacity: 60000,
-        galleryUrls: []
+        galleryUrls: [
+            `${baseUrl}/trackPhotogallery/interlagos/image1.jpg`,
+            `${baseUrl}/trackPhotogallery/interlagos/image2.avif`
+        ]
     },
     {
         id: 5,
         name: 'BARCELONA-CATALUNYA',
         country: 'SPAIN',
         distance: 5.891,
-        eventsCount: 3,
+        eventsCount: 2,
         imageUrl: `${baseUrl}/circuits/conf_path/Barcelona-Catalunya.svg`,
         series: ['f1', 'gt'],
         circuitPathUrl: `${baseUrl}/circuits/conf_path/Barcelona-Catalunya.svg`,
@@ -98,6 +111,9 @@ export const tracksDataset: Track[] = [
         lapRecordTime: '1:18.149',
         turnsCount: 18,
         grandstandCapacity: 140700,
-        galleryUrls: []
+        galleryUrls: [
+            `${baseUrl}/trackPhotogallery/barcelona/image1.webp`,
+            `${baseUrl}/trackPhotogallery/barcelona/image2.webp`
+        ]
     }
 ];

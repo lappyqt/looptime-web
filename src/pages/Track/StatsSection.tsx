@@ -51,7 +51,7 @@ function StatsSection(props: StatsSectionProps) {
             viewport={{ once: true, amount: 0.2 }} 
             className={clsx(styles.section, styles.statsSection)}>
             <motion.span className={clsx(styles.title, styles.gradientText)} variants={titleVariants}>
-                НЕМНОГО СТАТИСТИКИ
+                КЛЮЧЕВАЯ СТАТИСТИКА
             </motion.span>
 
             <div className={styles.cards}>

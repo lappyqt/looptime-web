@@ -5,6 +5,7 @@ import PhotoGallerySection from './PhotoGallerySection';
 import RacingSeriesSection from './RacingSeriesSection';
 import ReviewsSection from './ReviewsSection';
 import UpcomingEventsSection from './UpcomingEventsSection';
+import ScrollToTop from '../../shared/ui/ScrollToTop';
 
 function Home() {
     useEffect(() => {
@@ -18,6 +19,8 @@ function Home() {
             <RacingSeriesSection />
             <PhotoGallerySection />
             <ReviewsSection />
+
+            <ScrollToTop />
         </div>
     );
 }

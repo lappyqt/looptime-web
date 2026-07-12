@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { motion, type Variants } from 'motion/react';
 import { tracksDataset } from '../../dataset/tracks';
 import type { Series } from '../../entities/series';
+import { eventsDataset } from '../../dataset/event';
 
 const containerVariants = {
     hidden: {},
@@ -48,7 +49,18 @@ function Calendar() {
         return track.series.some(s => s === activeSeries.toLocaleLowerCase());
     });
 
-    useEffect(() => window.scrollTo(0, 0), []);
+    const filteredEvents = eventsDataset.filter(event => {
+        if (!activeSeries) return true;
+        return event.seriesType === activeSeries.toLocaleLowerCase();
+    });
+
+    const nowTimestamp = new Date().getTime();
+    const pastEvents = filteredEvents.filter(event => nowTimestamp > event.endDate);
+    const upcomingEvents = filteredEvents.filter(event => nowTimestamp <= event.endDate);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <section className={styles.calendarSection}>
@@ -108,9 +120,9 @@ function Calendar() {
                                 variants={containerVariants}
                                 initial='hidden'
                                 animate='visible'>
-                                {new Array(8).fill(null).map((_, index) => (
+                                {upcomingEvents.map((event, index) => (
                                     <motion.div whileHover={{ scale: 1.05 }} variants={cardVariants} key={index}>
-                                        <EventCard seriesType='f1' />
+                                        <EventCard event={event} />
                                     </motion.div>
                                 ))}
                             </motion.div>
@@ -124,9 +136,9 @@ function Calendar() {
                                 initial='hidden'
                                 whileInView='visible'
                                 viewport={{ once: true, amount: 0.15 }}>
-                                {new Array(8).fill(null).map((_, index) => (
+                                {pastEvents.map((event, index) => (
                                     <motion.div whileHover={{ scale: 1.05 }} variants={cardVariants} key={index}>
-                                        <EventCard seriesType='wec' />
+                                        <EventCard event={event} />
                                     </motion.div>
                                 ))}
                             </motion.div>

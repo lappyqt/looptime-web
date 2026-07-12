@@ -7,7 +7,9 @@ import ReviewsSection from './ReviewsSection';
 import UpcomingEventsSection from './UpcomingEventsSection';
 
 function Home() {
-    useEffect(() => window.scrollTo(0, 0), []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className={styles.sections}>

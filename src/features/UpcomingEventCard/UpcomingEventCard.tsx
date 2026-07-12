@@ -31,14 +31,14 @@ function UpcomingEventCard(props: UpcomingEventCardProps) {
             </div>
             <div className={styles.center}>
                 <div className={styles.trackContainer}>
-                    <img src="" alt="" />
+                    <img src={props.event.circuitPathUrl} alt="Circuit Path" />
                 </div>
-                <p className={styles.eventName}>BRITISH GRAND PRIX</p>
-                <p className={styles.location}>SILVERSTONE - UK</p>
+                <p className={styles.eventName}>{props.event.name}</p>
+                <p className={styles.location}>{props.event.trackName}</p>
             </div>
             <div className={styles.bottom}>
                 <div className={styles.date}>
-                    3-5 Июль
+                    {props.event.dateString}
                 </div>
                 <ArrowRight className={styles.arrow} />
             </div>

@@ -2,6 +2,7 @@ import { motion, type Variants } from 'motion/react';
 import styles from './Home.module.css';
 import clsx from 'clsx';
 import UpcomingEventCard from '../../features/UpcomingEventCard/UpcomingEventCard';
+import { eventsDataset } from '../../dataset/event';
 
 const sectionVariants = {
     hidden: {},
@@ -38,6 +39,9 @@ const cardVariants = {
 } as Variants;
 
 function UpcomingEventsSection() {
+    const nowTimestamp = new Date().getTime();
+    const upcomingEvents = eventsDataset.filter(e => e.startDate > nowTimestamp).sort().slice(0, 3);
+
     return (
        <motion.section className={styles.upcomingEventsSection}
             variants={sectionVariants}
@@ -50,9 +54,9 @@ function UpcomingEventsSection() {
                 </motion.h2>
 
                 <div className={styles.eventCards}>
-                    <UpcomingEventCard event={{ seriesType: 'f1' }} number={1} variants={cardVariants} />
-                    <UpcomingEventCard event={{ seriesType: 'wec' }} number={2} variants={cardVariants} />
-                    <UpcomingEventCard event={{ seriesType: 'gt' }} number={3} variants={cardVariants} />
+                    {upcomingEvents.map((event, index) => (
+                        <UpcomingEventCard key={index} event={event} number={index + 1} variants={cardVariants} />
+                    ))}
                 </div>
        </motion.section>
     ); 

@@ -17,7 +17,9 @@ function Track() {
         return <>Трек не найден</>
     }
 
-    useEffect(() => window.scrollTo(0, 0), []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <section className={styles.sections}>
@@ -25,7 +27,7 @@ function Track() {
             <AboutSection track={track} />
             <StatsSection track={track} />
             <PhotogallerySection track={track} />
-            <EventsSection />
+            <EventsSection track={track} />
         </section>
     );
 }

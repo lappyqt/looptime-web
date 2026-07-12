@@ -1,0 +1,290 @@
+.gradientText {
+    background: linear-gradient(to bottom, hsla(0, 0%, 55%, 0.5), hsla(0, 0%, 30%, 4%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block; 
+}
+
+.sections {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .section {
+        min-height: 100lvh;
+        position: relative;
+    }
+
+    .heroSection {
+        width: 100%;
+        height: 100lvh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px);
+            background-size: 160px 160px;
+
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 75%);
+
+            animation: gridMove 15s linear infinite;
+        }
+
+        .content {
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 0 clamp(30px, 18.99vw - 115.8px, 150px);;
+            
+            .title {
+                width: 100%;
+                font-family: var(--font-title);
+                font-size: clamp(28px, 8vw, 96px);
+                font-weight: 600;
+                color: var(--color-red);
+                text-wrap: wrap;
+                text-align: center;
+                line-height: 1.1;
+                transform: translateZ(0);
+                backface-visibility: hidden;
+                will-change: transform, opacity;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .line {
+                background-color: var(--color-red);
+                width: 100%;
+                height: 10px;
+            }
+
+            .underlineContainer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                .dates, .roundNumber {
+                    font-size: 32px;
+                    font-weight: 500;
+                    color: var(--color-red);
+                    transform: translateZ(0);
+                    backface-visibility: hidden;
+                    will-change: transform, opacity;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                } 
+            }
+        }
+    }
+
+    .statsSection {
+        width: 100%;
+        min-height: 100lvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 180px 30px 60px;
+        background-color: var(--color-coal);
+
+        .title {
+            position: absolute;
+            top: 0;
+            margin: 0 auto;
+            font-family: var(--font-title);
+            font-size: 7cqi;
+            font-weight: 600;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; 
+            display: block;
+            background: linear-gradient(to bottom, hsla(0, 0%, 100%, 1), hsla(0, 0%, 17%, 1));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .cards {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(min(390px, 100%), 430px));
+            width: 100%;
+            gap: 50px;
+
+            .statCard {
+                width: 100%;
+                height: 260px;
+                background-color: var(--color-white);
+                border-radius: 12px;
+                border: 1px solid hsla(0, 0%, 0%, 0.05);
+                box-sizing: border-box;
+                position: relative;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .topLine {
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding-bottom: 30px;
+
+                    .circle {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 100%;
+                        background-color: var(--color-coal);
+                    }
+
+                    .cardTitle {
+                        font-family: var(--font-text);
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                }
+
+                .value {
+                    font-family: var(--font-numbers);
+                    font-weight: 500;
+                    color: var(--color-red);
+                    font-size: 64px;
+                    text-wrap: wrap;
+
+                    &.outward {
+                        display: flex;
+                        justify-items: flex-end;
+                        flex-wrap: wrap;
+                        font-size: 48px;
+
+                        svg {
+                            width: 64px;
+                            height: 64px;
+                            fill: var(--color-red);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tableSection {
+        min-height: 100lvh;
+        height: auto;
+        padding: 50px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .titleContainer {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            display: grid;
+            align-items: center;
+
+            .title {
+                color: var(--color-white);
+                font-size: 32px;
+                font-weight: 500;
+                padding-left: 30px;
+                z-index: 10;
+            }
+
+            .squares {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: flex-end;
+                gap: 10px;
+
+                .square {
+                    width: 100%;
+                    height: 100%;
+                    transform-origin: bottom;
+                    background-color: var(--color-red);
+
+                    &.big { width: 50%; }
+                    &.medium { width: 20%; }
+                    &.small { width: 10%; }
+                    &.tiny { width: 5%; }
+                }
+            }
+        }
+    }
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 160px 160px; }
+}
+
+@media screen and (max-width: 768px) {
+    .sections {
+        .heroSection {
+            &::before {
+                background-size: 80px 80px ;
+                animation: none;
+            }
+
+            .content {
+                .line {
+                    height: 6px;
+                }
+
+                .underlineContainer {
+                    .dates, .roundNumber {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+
+        .statsSection {
+            .title {
+                font-size: 9cqi;
+                white-space: wrap;
+            }
+        }
+
+        .tableSection {
+            .titleContainer {
+                .title {
+                    font-size: 24px;
+                }
+
+                .squares {
+                    .square {
+                        &.big { width: 80%; }
+                        &.medium { display: none; }
+                        &.small { display: none; }
+                    }
+                }
+            }
+        }
+    }
+}

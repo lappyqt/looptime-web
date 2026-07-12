@@ -1,3 +1,5 @@
+import { eventsDataset } from '../../dataset/event';
+import type { Track } from '../../entities/track';
 import EventCard from '../../widgets/EventCard/EventCard';
 import styles from './Track.module.css';
 import { motion, type Variants } from 'motion/react';
@@ -26,7 +28,13 @@ const cardVariants = {
     }
 } as Variants;
 
-function EventsSection() {
+interface EventsSectionProps {
+    track: Track
+}
+
+function EventsSection(props: EventsSectionProps) {
+    const eventsOnTrack = eventsDataset.filter(e => e.trackId === props.track.id);
+
     return (
         <section className={styles.eventsSection}>
             <div className={styles.cardGroup}>
@@ -39,9 +47,9 @@ function EventsSection() {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.15 }}>
-                    {new Array(3).fill(null).map((_, index) => (
+                    {eventsOnTrack.map((event, index) => (
                         <motion.div whileHover={{ scale: 1.05 }} variants={cardVariants} key={index}>
-                            <EventCard seriesType='f1' />
+                            <EventCard event={event} />
                         </motion.div>
                     ))}
                 </motion.div>

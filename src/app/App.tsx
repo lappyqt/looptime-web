@@ -4,6 +4,7 @@ import Contact from '../pages/Contact/Contact';
 import Layout from '../widgets/layout/Layout';
 import Calendar from '../pages/Calendar/Calendar';
 import Track from '../pages/Track/Track';
+import Event from '../pages/Event/Event';
 
 const router = createHashRouter([
     {
@@ -25,6 +26,10 @@ const router = createHashRouter([
             {
                 path: "track/:id",
                 element: <Track />
+            },
+            {
+                path: "event/:id",
+                element: <Event />
             }
         ]
     }

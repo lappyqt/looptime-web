@@ -41,7 +41,9 @@ function Contact() {
     const card2Positions = enableParallax ? card2Parallax : { x: 30, y: -30 };
     const card3Positions = enableParallax ? card3Parallax : { x: 60, y: -60 };
 
-    useEffect(() => window.scrollTo(0, 0), []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     // Feedback logic
     const [fullname, setFullname] = useState('');

@@ -18,7 +18,7 @@ function PhotogallerySection(props: PhotogallerySectionProps) {
             {
                 (props.track.galleryUrls !== null && props.track.galleryUrls.length < 1) &&
                 <div className={styles.noContent}>
-                    <span>На данный момент фотографий нет</span>
+                    <span>На данный момент: фотографий нет</span>
                 </div>
             }
         </motion.section>
